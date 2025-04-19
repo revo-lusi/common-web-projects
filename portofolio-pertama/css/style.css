@@ -14,6 +14,7 @@
   --mainColor: #000424;
   --secondaryColor: #9cb8ff;
   --bg: #010521;
+  --textMainColor: #fefefe;
   scroll-behavior: smooth;
 }
 
@@ -34,6 +35,7 @@ body {
   display: flex;
   justify-content: center;
   position: fixed;
+  width: 100%;
   top: 0;
   right: 0;
   left: 0;
@@ -113,10 +115,10 @@ body {
 }
 
 .hero-section .cta:hover {
-  border: 3px solid #fff;
-  box-shadow: 0 0 10px 5px #fff;
+  border: 3px solid var(--textMainColor);
+  box-shadow: 0 0 10px 5px var(--textMainColor);
   background-color: var(--mainColor);
-  color: #fff;
+  color: var(--textMainColor);
 }
 
 .hero-section img {
@@ -148,19 +150,19 @@ body {
   padding: 1rem;
   border-radius: 5px;
   transition: 0.3s;
-  border: 3px solid #fefefe;
+  border: 3px solid var(--textMainColor);
 }
 
 .skill-box:hover,
 .proyek:hover {
-  box-shadow: 0 0 10px 7px white;
+  box-shadow: 0 0 10px 7px var(--textMainColor);
   transform: scale(1.08);
 }
 
 .skill-box img {
   width: 100px;
   border-radius: 10px;
-  border: 3px solid #fefefe;
+  border: 3px solid var(--textMainColor);
   background-size: cover;
 }
 
@@ -177,11 +179,17 @@ body {
 
 .proyek-section {
   padding: 6rem 7% 1.4rem;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
-.proyek-section .proyek-box {
-  gap: 30px;
+.proyek-section .proyek {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.proyek-section .proyek .title {
+  margin: 0.5rem auto;
 }
 
 .proyek-section .proyek img {
@@ -189,6 +197,7 @@ body {
 }
 
 .proyek-section .proyek a {
+  margin-top: 1rem;
   display: block;
   padding: 0.5rem;
   font-weight: 700;
@@ -199,10 +208,10 @@ body {
 }
 
 .proyek-section .proyek a:hover {
-  border: 3px solid #fff;
-  box-shadow: 0 0 10px 5px #fff;
+  border: 3px solid var(--textMainColor);
+  box-shadow: 0 0 10px 5px var(--textMainColor);
   background-color: var(--mainColor);
-  color: #fff;
+  color: var(--textMainColor);
 }
 
 /* Sertifikasi Section */
@@ -212,18 +221,33 @@ body {
   height: 100vh;
 }
 
-.my-sertifikat {
+.certificates-container {
   width: 80%;
   margin: auto;
 }
 
-.my-sertifikat img {
+.certificate {
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate img {
   display: block;
   width: 60%;
   margin: auto;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.my-sertifikat h2 {
+.certificate img:hover {
+  transform: scale(1.1);
+  border: 3px solid var(--textMainColor);
+  box-shadow: 0 0 10px 5px var(--textMainColor);
+  background-color: var(--mainColor);
+  color: var(--textMainColor);
+}
+
+.certificates-container .certificate h2 {
   margin-top: 1rem;
   text-align: center;
 }
@@ -248,7 +272,7 @@ body {
 
 .kontak-section .row .form-contact-me {
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--textMainColor);
   padding: 1rem;
 }
 
@@ -308,7 +332,7 @@ body {
   font-size: 1rem;
   margin: 0.5rem 0;
   padding: 0.3rem;
-  border: 2px solid black;
+  border: 2px solid var(--bg);
   border-radius: 5px;
 }
 
@@ -319,7 +343,7 @@ body {
 .form-contact-me textarea {
   font-size: 1rem;
   margin: 1rem 0;
-  border: 2px solid black;
+  border: 2px solid var(--bg);
   border-radius: 5px;
   padding: 0.3rem;
   height: 6rem;
@@ -338,7 +362,7 @@ body {
 
 .form-contact-me button[type="submit"]:hover {
   background-color: var(--mainColor);
-  color: #fff;
+  color: var(--textMainColor);
 }
 
 /* Footer */
@@ -367,6 +391,10 @@ footer p {
 @media (max-width: 768px) {
   :root {
     font-size: 62%;
+  }
+
+  .section-title {
+    margin: 3rem auto;
   }
 
   .hero-section {
@@ -426,17 +454,32 @@ footer p {
     display: inline-block;
   }
 
-  .proyek-section {
-    overflow: auto;
-  }
-
   .proyek-box {
+    width: 65%;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(1, 1fr);
+    row-gap: 5rem;
+  }
+
+  .certificates-container {
+    flex-direction: column;
+  }
+
+  .certificate img {
+    width: 100%;
   }
 
   .kontak-section .row {
     flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .kontak-section .row .info .box {
+    margin-bottom: 2rem;
+  }
+  .kontak-section .row .info .box .icon {
+    font-size: 0.6rem;
+    line-height: 6rem;
   }
 }
 
