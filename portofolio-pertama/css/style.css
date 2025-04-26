@@ -37,7 +37,6 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  right: 0;
   left: 0;
   z-index: 9999;
   padding: 1.4rem 5%;
@@ -135,7 +134,7 @@ body {
 }
 
 .skills-container,
-.proyek-box {
+.projects-container {
   width: 80%;
   margin: auto;
   display: grid;
@@ -145,7 +144,7 @@ body {
 }
 
 .skill-box,
-.proyek {
+.project-item {
   text-align: center;
   padding: 1rem;
   border-radius: 5px;
@@ -154,7 +153,7 @@ body {
 }
 
 .skill-box:hover,
-.proyek:hover {
+.project-item:hover {
   box-shadow: 0 0 10px 7px var(--textMainColor);
   transform: scale(1.08);
 }
@@ -175,28 +174,27 @@ body {
   font-size: 0.7rem;
 }
 
-/* Proyek Section */
+/* Projects Section */
 
-.proyek-section {
+.projects-section {
   padding: 6rem 7% 1.4rem;
-  /* height: 100vh; */
 }
 
-.proyek-section .proyek {
+.projects-section .project-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.proyek-section .proyek .title {
+.projects-section .project-item .title {
   margin: 0.5rem auto;
 }
 
-.proyek-section .proyek img {
+.projects-section .project-item img {
   width: 100%;
 }
 
-.proyek-section .proyek a {
+.projects-section .project-item a {
   margin-top: 1rem;
   display: block;
   padding: 0.5rem;
@@ -207,22 +205,26 @@ body {
   transition: 0.3s;
 }
 
-.proyek-section .proyek a:hover {
+.projects-section .project-item a:hover {
   border: 3px solid var(--textMainColor);
   box-shadow: 0 0 10px 5px var(--textMainColor);
   background-color: var(--mainColor);
   color: var(--textMainColor);
 }
 
-/* Sertifikasi Section */
+/* Certificates Section */
 
-.sertifikasi-section {
+.certificates-section {
   padding: 6rem 7% 1.4rem;
   height: 100vh;
 }
 
 .certificates-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80%;
+  height: 80%;
   margin: auto;
 }
 
@@ -252,43 +254,43 @@ body {
   text-align: center;
 }
 
-/* Kontak Section */
+/* Contacts Section */
 
-.kontak-section {
+.contacts-section {
   padding: 6rem 7% 1.4rem;
   height: 100vh;
 }
 
-.kontak-section .row {
+.contacts-section .row {
   width: 80%;
   margin: auto;
   display: flex;
 }
 
-.kontak-section .row > * {
+.contacts-section .row > * {
   margin: 0 1rem;
   flex: 1;
 }
 
-.kontak-section .row .form-contact-me {
+.contacts-section .row .form-contact-me {
   border-radius: 5px;
   background-color: var(--textMainColor);
   padding: 1rem;
 }
 
-.kontak-section .row .form-contact-me h2 {
+.contacts-section .row .form-contact-me h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.kontak-section .info {
+.contacts-section .contact-info {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.kontak-section .info .box {
+.contacts-section .contact-info .contact-item {
   display: grid;
   grid-template-columns: 1fr 6fr;
   grid-template-rows: 1fr 1fr;
@@ -298,26 +300,21 @@ body {
   column-gap: 0.5rem;
 }
 
-.kontak-section .box .icon {
+.contacts-section .contact-item .icon {
+  grid-area: icon;
   width: 4rem;
   height: 4rem;
-  grid-area: icon;
   border-radius: 50%;
   background-color: var(--secondaryColor);
   text-align: center;
   line-height: 4rem;
-  font-size: 2rem;
 }
 
-.kontak-section .box .icon i {
-  color: var(--mainColor);
-}
-
-.kontak-section .box h3 {
+.contacts-section .contact-item h3 {
   grid-area: title;
 }
 
-.kontak-section .box p {
+.contacts-section .contact-item p {
   grid-area: value;
 }
 
@@ -360,7 +357,7 @@ body {
   transition: 0.3s;
 }
 
-.form-contact-me button[type="submit"]:hover {
+.form-contact-me button:hover {
   background-color: var(--mainColor);
   color: var(--textMainColor);
 }
@@ -454,7 +451,7 @@ footer p {
     display: inline-block;
   }
 
-  .proyek-box {
+  .projects-container {
     width: 65%;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(1, 1fr);
@@ -469,15 +466,15 @@ footer p {
     width: 100%;
   }
 
-  .kontak-section .row {
+  .contacts-section .row {
     flex-direction: column;
     justify-content: space-between;
   }
 
-  .kontak-section .row .info .box {
+  .contacts-section .row .contact-info .contact-item {
     margin-bottom: 2rem;
   }
-  .kontak-section .row .info .box .icon {
+  .contacts-section .row .contact-info .contact-item .icon {
     font-size: 0.6rem;
     line-height: 6rem;
   }
@@ -487,5 +484,11 @@ footer p {
 @media (max-width: 450px) {
   :root {
     font-size: 55%;
+  }
+
+  .skills-container {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
